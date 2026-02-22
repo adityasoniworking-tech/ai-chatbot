@@ -1,0 +1,22 @@
+:root {
+  --growlity-green: #16A34A;
+  --growlity-blue: #2563EB;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  /* Clean light background */
+  overflow: hidden;
+  /* Prevent scrolling if only widget is used */
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
