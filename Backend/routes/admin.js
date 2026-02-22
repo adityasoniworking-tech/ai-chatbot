@@ -1,5 +1,6 @@
 import express from 'express';
 import { runIngestion } from '../scraper.js';
+import { Chunk } from '../models/Chunk.js';
 
 const router = express.Router();
 
