@@ -50,15 +50,27 @@ app.use((err, req, res, next) => {
 });
 
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/growlity')
+const mongoURI = process.env.MONGODB_URI;
+
+if (!mongoURI) {
+    console.error('CRITICAL ERROR: MONGODB_URI environment variable is missing!');
+}
+
+console.log('Attempting to connect to MongoDB...');
+
+mongoose.connect(mongoURI, {
+    serverSelectionTimeoutMS: 5000 // Timeout after 5s instead of 30s
+})
     .then(() => {
-        console.log('Connected to MongoDB');
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
+        console.log('Successfully connected to MongoDB Atlas');
+        if (process.env.NODE_ENV !== 'test') {
+            app.listen(PORT, () => {
+                console.log(`Server running on port ${PORT}`);
+            });
+        }
     })
     .catch((error) => {
-        console.error('Error connecting to MongoDB:', error.message);
+        console.error('FATAL MongoDB Connection Error:', error.message);
     });
 
 export default app;
