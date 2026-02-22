@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Chunk } from './models/Chunk.js';
+import path from 'path';
 
 dotenv.config();
 
@@ -29,12 +30,13 @@ const embeddingModel = genAI.getGenerativeModel({ model: "gemini-embedding-001" 
  */
 async function scrapeUrl(source) {
     if (!source.startsWith('http')) {
-        // It's a local file
-        console.log(`Reading local file ${source}...`);
+        // It's a local file - ensure path is correct for Vercel
+        const filePath = path.resolve(process.cwd(), source);
+        console.log(`Reading local file from: ${filePath}`);
         try {
-            return fs.readFileSync(source, 'utf8');
+            return fs.readFileSync(filePath, 'utf8');
         } catch (error) {
-            console.error(`Error reading file ${source}:`, error.message);
+            console.error(`Error reading file ${filePath}:`, error.message);
             return null;
         }
     }
