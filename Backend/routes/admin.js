@@ -8,7 +8,7 @@ const router = express.Router();
  * @desc Manually trigger a website scrape to refresh the AI context
  * @access Private/Admin (For focus, we're keeping it simple for now)
  */
-router.post('/scrape', async (req, res) => {
+router.all('/scrape', async (req, res) => {
     try {
         const { urls } = req.body; // Optional: provide specific URLs to scrape
         console.log('--- ADMIN: Manual Scrape Triggered ---');
