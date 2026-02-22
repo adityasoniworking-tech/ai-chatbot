@@ -62,7 +62,7 @@ async function performVectorSearch(queryEmbedding) {
         return results;
     } catch (error) {
         console.error('Error performing vector search:', error);
-        return [];
+        throw error; // Throw so we can catch it in handleChat
     }
 }
 
@@ -160,6 +160,16 @@ Answer the user query acting as Grow AI Chatbot:`;
 
     } catch (error) {
         console.error('Error handling chat:', error);
+        
+        // Return a more descriptive error for vector search failures to help debugging
+        if (error.message && error.message.includes('vectorSearch')) {
+            return res.status(500).json({ 
+                error: 'Vector Search Failure', 
+                details: 'Please ensure your MongoDB Atlas Vector Search index is named "vector_index" and is properly configured.',
+                rawError: error.message
+            });
+        }
+        
         return res.status(500).json({ error: 'An error occurred while processing your request.' });
     }
 };

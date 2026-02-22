@@ -31,4 +31,24 @@ router.all('/scrape', async (req, res) => {
     }
 });
 
+/**
+ * @route GET /api/admin/stats
+ * @desc Check database status and chunk count
+ */
+router.get('/stats', async (req, res) => {
+    try {
+        const count = await Chunk.countDocuments();
+        const sample = await Chunk.findOne().select('text sourceUrl');
+        
+        res.status(200).json({
+            success: true,
+            totalChunks: count,
+            sampleSnippet: sample ? sample.text.substring(0, 100) : 'No data found',
+            source: sample ? sample.sourceUrl : 'N/A'
+        });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 export default router;
