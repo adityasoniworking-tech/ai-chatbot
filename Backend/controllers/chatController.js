@@ -86,6 +86,35 @@ async function performOpenRouterSearch(query) {
     }
 }
 
+async function performGoogleSearch(query) {
+    try {
+        const apiKey = process.env.GOOGLE_API_KEY;
+        const cx = process.env.GOOGLE_CX;
+        
+        if (!apiKey || !cx) {
+            console.warn('Google Search API keys missing. Skipping web search.');
+            return null;
+        }
+
+        const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
+            params: {
+                key: apiKey,
+                cx: cx,
+                q: query,
+                num: 3
+            }
+        });
+
+        const items = response.data.items || [];
+        if (items.length === 0) return null;
+
+        return items.map(item => `Title: ${item.title}\nSnippet: ${item.snippet}`).join('\n\n');
+    } catch (error) {
+        console.error('Error in Google Search API:', error.message);
+        return null;
+    }
+}
+
 export const handleChat = async (req, res) => {
     try {
         const { messages } = req.body; // Expecting an array of previous messages like [{role: 'user', content: '...'}, {role: 'model', content: '...'}]
@@ -111,13 +140,23 @@ export const handleChat = async (req, res) => {
 
             usedSource = [];
             
-            // Add RAG context if similarity is reasonable
+            // 2. Add RAG context if similarity is reasonable
             if (searchResults.length > 0) {
-                const goodMatches = searchResults.filter(r => r.score > 0.5); // Lowered threshold slightly for testing
+                const goodMatches = searchResults.filter(r => r.score > 0.6); 
                 if (goodMatches.length > 0) {
                     context += "--- GROWLITY INTERNAL DOCUMENTS ---\n";
                     context += goodMatches.map(r => r.text).join('\n\n') + "\n\n";
                     usedSource.push("Growlity Documents (RAG)");
+                }
+            }
+
+            // 3. Fallback to Google Search if no good internal matches
+            if (usedSource.length === 0) {
+                const searchResults = await performGoogleSearch(latestQuery);
+                if (searchResults) {
+                    context += "--- WEB SEARCH RESULTS ---\n";
+                    context += searchResults + "\n\n";
+                    usedSource.push("Google Search");
                 }
             }
             
