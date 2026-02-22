@@ -14,8 +14,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production' ? 'https://growlity.com' : '*',
-    methods: ['GET', 'POST']
+    origin: '*',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(helmet());
 app.use(morgan('dev'));
