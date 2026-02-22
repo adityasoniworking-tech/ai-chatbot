@@ -106,11 +106,14 @@ export const handleChat = async (req, res) => {
             // 2. Perform vector search for internal context
             const searchResults = await performVectorSearch(queryEmbedding);
             
+            console.log(`Vector search returned ${searchResults.length} results.`);
+            searchResults.forEach((r, i) => console.log(`Result ${i+1}: Score ${r.score} - Snippet: ${r.text.substring(0, 50)}...`));
+
             usedSource = [];
             
             // Add RAG context if similarity is reasonable
             if (searchResults.length > 0) {
-                const goodMatches = searchResults.filter(r => r.score > 0.65); 
+                const goodMatches = searchResults.filter(r => r.score > 0.5); // Lowered threshold slightly for testing
                 if (goodMatches.length > 0) {
                     context += "--- GROWLITY INTERNAL DOCUMENTS ---\n";
                     context += goodMatches.map(r => r.text).join('\n\n') + "\n\n";
