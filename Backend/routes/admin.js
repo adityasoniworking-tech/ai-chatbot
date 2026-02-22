@@ -19,7 +19,7 @@ router.all('/scrape', async (req, res) => {
         res.status(200).json({
             success: true,
             message: 'Inspiration and extraction completed successfully.',
-            chunksSaved: result.length
+            chunksSaved: result
         });
     } catch (error) {
         console.error('Admin Scrape Error:', error);

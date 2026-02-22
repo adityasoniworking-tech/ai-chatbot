@@ -126,6 +126,7 @@ export async function runIngestion(customUrls = null) {
         'company-info.txt'
     ];
     
+    let totalChunksSaved = 0;
     for (const sourceUrl of sourceUrls) {
         console.log(`\n--- Starting ingestion for: ${sourceUrl} ---`);
         const fullText = await scrapeUrl(sourceUrl);
@@ -152,6 +153,7 @@ export async function runIngestion(customUrls = null) {
                     sourceUrl: sourceUrl
                 });
                 await chunkDoc.save();
+                totalChunksSaved++;
             } else {
                 console.log(`Failed to generate embedding for chunk ${i + 1}`);
             }
@@ -159,8 +161,8 @@ export async function runIngestion(customUrls = null) {
         console.log(`--- Finished ingestion for: ${sourceUrl} ---`);
     }
 
-    console.log("\nAll Ingestion completed successfully!");
-    return true;
+    console.log(`\nAll Ingestion completed successfully! Total chunks saved: ${totalChunksSaved}`);
+    return totalChunksSaved;
 }
 
 // Execute the script if run directly
