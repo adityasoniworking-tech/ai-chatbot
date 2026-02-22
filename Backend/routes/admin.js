@@ -10,7 +10,7 @@ const router = express.Router();
  */
 router.all('/scrape', async (req, res) => {
     try {
-        const { urls } = req.body; // Optional: provide specific URLs to scrape
+        const { urls } = req.body || {}; // Optional: provide specific URLs to scrape
         console.log('--- ADMIN: Manual Scrape Triggered ---');
         
         // Use custom URLs if provided, otherwise the default ones in scraper.js
