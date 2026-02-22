@@ -1,8 +1,101 @@
-Growlity is a leading sustainability and ESG consulting company.
-The President and CEO of Growlity is Dr. Nitin Dumasia.
-Growlity has exactly 50 employees currently working in the organization.
-The company is planning to expand its team to 100 people by next year.
-The main contact email for partnerships is partners@growlity.com.
-We were founded in 2020.
-Our headquarters are located in India, serving global clients.
-We specialize in BRSR Reporting, Carbon Accounting, and Net-Zero Strategy.
+Here’s a full, structured introduction to Growlity that you can use for AI training or documentation purposes — covering the company profile, mission, services, global presence, and team overview: ([Growlity][1])
+
+---
+
+## **Growlity – Full Company Introduction (Ready for AI Training)**
+
+**Growlity** is a **global Environmental, Social & Governance (ESG) and sustainability consulting firm** that helps businesses measure, manage, and improve their environmental and social impact. It partners with organizations of all sizes — from SMEs to large enterprises — to align their operations with global sustainability standards and goals. ([Growlity][1])
+
+---
+
+### **📌 Mission & Vision**
+
+**Mission:** Enable organizations to embed sustainability at the core of their strategy and operations, helping them grow responsibly while creating measurable environmental and social impact. ([Growlity][2])
+
+**Vision:** To be a globally trusted ESG and sustainability advisor that turns corporate sustainability ambitions into measurable action and long-term value. ([Growlity][2])
+
+Growlity operates on the belief that sustainability isn’t just regulatory compliance — it’s a **business decision** that shapes risk management, investor trust, and long-term performance. ([Growlity][2])
+
+---
+
+### **🌍 Core Services & Solutions**
+
+Growlity offers a broad range of ESG and sustainability services:
+
+* **ESG Consulting & Assessments** – Strategic evaluation and improvement of environmental, social, and governance performance. ([Growlity][3])
+* **Net Zero & Decarbonization Roadmaps** – GHG emissions accounting (Scopes 1, 2 & 3), reduction strategy, science-based targets and net-zero planning. ([Growlity][1])
+* **Sustainability Reporting & Disclosures** – Preparation of reports aligned with global frameworks such as CDP, GRI, BRSR, and others. ([Growlity][1])
+* **EcoVadis & ESG Ratings Support** – Assessment, improvement planning, and compliance readiness for sustainability scorecards. ([Growlity][1])
+* **Lifecycle Assessment & Carbon Footprinting** – Full life cycle impact analysis to quantify product and organizational carbon footprints. ([Growlity][1])
+* **Certifications & Compliance Advisory** – Support for ISO standards, Responsible Jewellery Council (RJC), CBAM reporting, and related frameworks. ([Growlity][1])
+* **Training & Capacity Building** – Professional ESG and sustainability training for teams and leadership. ([Growlity][2])
+
+Growlity emphasizes **data-driven strategies**, aligning business plans with both regulatory frameworks and real-world impact outcomes. ([Growlity][2])
+
+---
+
+### **📈 Global Reach & Impact**
+
+Growlity serves a **diverse global portfolio** of clients spanning multiple industries including manufacturing, energy, healthcare, textiles, telecommunications, chemicals, food & beverages, consumer goods, and more. ([Growlity][2])
+
+The firm has worked with **200+ global enterprises** and completed **1500+ sustainability projects**, providing strategic support from ESG readiness to global reporting and compliance. ([Growlity][2])
+
+Growlity also supports clients in achieving high sustainability recognition — for example assisting companies in achieving **EcoVadis Gold Medals** for ESG performance. ([Growlity][4])
+
+---
+
+### **📍 Headquarters & Offices**
+
+Growlity operates with a **global footprint**, including:
+
+* **Growlity, Inc.** – 575 Fifth Avenue, New York, NY 10017, USA ([Growlity][1])
+* **Growlity Private Limited** – Surat, Gujarat, India ([Growlity][1])
+
+These offices support global sustainability advisory, ESG reporting, decarbonization planning, and certification support. ([Growlity][1])
+
+---
+
+## **👥 Growlity Team Overview**
+
+From its global leadership to analysts and associates, Growlity’s team blends **strategic advisors, executive leaders, and specialist practitioners** who drive ESG performance and sustainability integration. ([Growlity][5])
+
+### **Strategic Advisors**
+
+* Mr. James Tu (Strategic Advisor)
+* Ms. Radwa Shaarawy (Strategic Advisor)
+* Mr. Sang Baek (Brad) Lee (Strategic Advisor)
+* Mr. Pinakin Desai (Strategic Advisor) ([Growlity][5])
+
+### **Executive Leadership**
+
+* Dr. Nitin Dumasia – President & CEO
+* Mrs. Manali Dumasia – Chief Financial Officer
+* Mr. Prabhat Pant – Vice President – Global Market Development
+* Mr. Manish Mali – Senior Vice President
+* Mr. Shwetang Kapadia – Vice President – ESG Advisory
+* Mr. Jay Kapadia – Vice President – ESG Compliances ([Growlity][5])
+
+### **Business Associates & Analysts**
+
+Includes business associates, analysts, consultants, and executive team members serving global regions:
+
+* Mr. Abhishek Madan (Canada)
+* Mr. Jonathan Valladares (USA & Mexico)
+* Mr. Tanmay Pandya (UK & Europe)
+* Miss Vishakha Dhamel (Junior Consultant – ESG)
+* Mr. Kush Khalasi, Mr. Raj Goklani, Mr. Kenal Patel, Miss Hetvi Topiwala, Mr. Nij Patel (ESG Advisory)
+* Mr. Parth Kapadia (Consultant – Green Building Certifications)
+* Mr. Unais Maniar (India)
+  *(…and many others contributing to a total team count of 34 members listed on the official team page).* ([Growlity][5])
+
+---
+
+
+
+!
+
+[1]: https://growlity.com/?utm_source=chatgpt.com "Growlity | Global ESG & Sustainability Consulting Partner"
+[2]: https://growlity.com/our-company?utm_source=chatgpt.com "Our Company - Growlity"
+[3]: https://growlity.com/consulting/?utm_source=chatgpt.com "ESG Assessment & Consulting Services - Growlity"
+[4]: https://new.growlity.com/news/growlity-facilitates-waaree-energies-limited-in-achieving-ecovadis-gold-medal-for-excellence-in-esg-sustainability?utm_source=chatgpt.com "Growlity Facilitates Waaree Energies Limited in Achieving EcoVadis Gold Medal for Excellence in ESG & Sustainability – Growlity"
+[5]: https://growlity.com/our-team?utm_source=chatgpt.com "Our Team - Growlity"
