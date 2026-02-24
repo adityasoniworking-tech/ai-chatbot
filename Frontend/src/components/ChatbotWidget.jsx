@@ -52,7 +52,10 @@ export default function ChatbotWidget() {
             setMessages(prev => [...prev, modelMessage]);
         } catch (error) {
             console.error('Chat error:', error);
-            setMessages(prev => [...prev, { role: 'model', content: 'I apologize, but I am currently experiencing technical difficulties connecting to my knowledge base. Please try again later.' }]);
+            const errorMessage = error.response?.data?.details ||
+                error.response?.data?.error ||
+                'I apologize, but I am currently experiencing technical difficulties connecting to my knowledge base. Please try again later.';
+            setMessages(prev => [...prev, { role: 'model', content: errorMessage }]);
         } finally {
             setIsLoading(false);
         }

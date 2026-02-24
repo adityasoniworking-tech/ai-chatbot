@@ -135,22 +135,27 @@ export const handleChat = async (req, res) => {
         let usedSource = "General Knowledge";
 
         if (queryEmbedding) {
-            // 2. Perform vector search for internal context
-            const searchResults = await performVectorSearch(queryEmbedding);
-            
-            console.log(`Vector search returned ${searchResults.length} results.`);
-            searchResults.forEach((r, i) => console.log(`Result ${i+1}: Score ${r.score} - Snippet: ${r.text.substring(0, 50)}...`));
+            try {
+                // 2. Perform vector search for internal context
+                const searchResults = await performVectorSearch(queryEmbedding);
+                
+                console.log(`Vector search returned ${searchResults.length} results.`);
+                searchResults.forEach((r, i) => console.log(`Result ${i+1}: Score ${r.score} - Snippet: ${r.text.substring(0, 50)}...`));
 
-            usedSource = [];
-            
-            // 2. Add RAG context if similarity is reasonable
-            if (searchResults.length > 0) {
-                const goodMatches = searchResults.filter(r => r.score > 0.6); 
-                if (goodMatches.length > 0) {
-                    context += "--- GROWLITY INTERNAL DOCUMENTS ---\n";
-                    context += goodMatches.map(r => r.text).join('\n\n') + "\n\n";
-                    usedSource.push("Growlity Documents (RAG)");
+                usedSource = [];
+                
+                // 2. Add RAG context if similarity is reasonable
+                if (searchResults.length > 0) {
+                    const goodMatches = searchResults.filter(r => r.score > 0.6); 
+                    if (goodMatches.length > 0) {
+                        context += "--- GROWLITY INTERNAL DOCUMENTS ---\n";
+                        context += goodMatches.map(r => r.text).join('\n\n') + "\n\n";
+                        usedSource.push("Growlity Documents (RAG)");
+                    }
                 }
+            } catch (searchError) {
+                console.warn('Vector search failed, falling back to other sources:', searchError.message);
+                usedSource = [];
             }
 
             // 3. Fallback to Google Search if no good internal matches
@@ -164,7 +169,6 @@ export const handleChat = async (req, res) => {
             }
             
             usedSource = usedSource.join(" + ") || "General Knowledge";
-            
         } 
 
         console.log(`Using source: ${usedSource}`);
