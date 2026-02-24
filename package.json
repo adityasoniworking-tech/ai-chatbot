@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build --prefix Frontend",
+    "install-all": "npm install --prefix Frontend && npm install --prefix Backend",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
