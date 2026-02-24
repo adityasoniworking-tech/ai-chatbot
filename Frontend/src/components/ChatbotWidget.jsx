@@ -4,7 +4,7 @@ import { MessageCircle, X, Send, Minimize2, Maximize2, RotateCcw, Pencil, Check,
 import Markdown from 'markdown-to-jsx';
 import './ChatbotWidget.css';
 
-const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api/chat';
+const API_URL = import.meta.env.VITE_BACKEND_URL || (import.meta.env.PROD ? '/api/chat' : 'http://localhost:5000/api/chat');
 
 export default function ChatbotWidget() {
     const [isOpen, setIsOpen] = useState(false);
